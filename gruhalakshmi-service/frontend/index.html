@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gruha Lakshmi Service</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Gruha Lakshmi Scheme</h1>
+
+        <p class="subtitle">
+            Beneficiary Application Portal
+        </p>
+
+        <div class="card">
+
+            <h2>Apply for Gruha Lakshmi</h2>
+
+            <form id="applicationForm">
+
+                <label>Citizen ID</label>
+
+                <input
+                    type="number"
+                    id="citizen_id"
+                    required
+                >
+
+                <label>Ration Card Number</label>
+
+                <input
+                    type="text"
+                    id="ration_card"
+                    required
+                >
+
+                <label>Annual Income</label>
+
+                <input
+                    type="number"
+                    id="annual_income"
+                    required
+                >
+
+                <label>
+                    Are you the household head?
+                </label>
+
+                <select id="is_household_head" required>
+
+                    <option value="">
+                        Select
+                    </option>
+
+                    <option value="true">
+                        Yes
+                    </option>
+
+                    <option value="false">
+                        No
+                    </option>
+
+                </select>
+
+                <button type="submit">
+                    Submit Application
+                </button>
+
+            </form>
+
+        </div>
+
+
+        <div class="card">
+
+            <h2>Check Application</h2>
+
+            <input
+                type="number"
+                id="application_id"
+                placeholder="Application ID"
+            >
+
+            <button onclick="getApplication()">
+                Check Status
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h2>Simulate Monthly Benefit</h2>
+
+            <input
+                type="number"
+                id="payment_application_id"
+                placeholder="Application ID"
+            >
+
+            <button onclick="makePayment()">
+                Process ₹2,000 Benefit
+            </button>
+
+        </div>
+
+
+        <div id="result"></div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
