@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 import sqlite3
 import os
@@ -7,6 +7,7 @@ from datetime import datetime
 
 app = Flask(__name__)
 CORS(app)
+
 
 DATABASE = os.path.join(
     os.path.dirname(__file__),
@@ -59,10 +60,26 @@ def initialize_database():
 
 @app.route("/", methods=["GET"])
 def home():
-    return jsonify({
-        "service": "Gruha Lakshmi Service",
-        "status": "running"
-    })
+    return send_from_directory(
+        os.path.join(os.path.dirname(__file__), "../frontend"),
+        "index.html"
+    )
+
+
+@app.route("/style.css")
+def style():
+    return send_from_directory(
+        os.path.join(os.path.dirname(__file__), "../frontend"),
+        "style.css"
+    )
+
+
+@app.route("/script.js")
+def script():
+    return send_from_directory(
+        os.path.join(os.path.dirname(__file__), "../frontend"),
+        "script.js"
+    )
     
 @app.route("/health", methods=["GET"])
 def health():
