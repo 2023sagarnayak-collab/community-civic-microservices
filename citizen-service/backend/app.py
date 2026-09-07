@@ -6,6 +6,13 @@ import os
 app = Flask(__name__)
 CORS(app)
 
+@app.route("/", methods=["GET"])
+def home():
+    return jsonify({
+        "service": "Citizen Service",
+        "status": "running"
+    })
+
 DATABASE = os.path.join(
     os.path.dirname(__file__),
     "../database/citizen.db"
