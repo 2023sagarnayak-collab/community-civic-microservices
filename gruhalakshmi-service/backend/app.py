@@ -57,6 +57,13 @@ def initialize_database():
     db.close()
 
 
+@app.route("/", methods=["GET"])
+def home():
+    return jsonify({
+        "service": "Gruha Lakshmi Service",
+        "status": "running"
+    })
+    
 @app.route("/health", methods=["GET"])
 def health():
     return jsonify({
